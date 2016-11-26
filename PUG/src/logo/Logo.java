@@ -60,7 +60,6 @@ public class Logo extends JPanel {
 	public static void main(String[] args) {
 		timer = new Timer();
 		SwingUtilities.invokeLater(new Runnable() {
-
 			@Override
 			public void run() {
 				frame = new JFrame("PUG");
@@ -141,31 +140,33 @@ public class Logo extends JPanel {
 		setBackGround(g);
 		showHead(g);
 	}
-	
+
 	private void showHead(Graphics g) {
 		g.setColor(FUR_1);
-		g.fillOval(500, 350, 600, 600); //Head
-		ears(g); 
-		snout(g);
-		mouth(g);
-		topHat(g);
-		monocle(g);
-		eyes(g);
-		eyelid(g);
-		brokenGlass(g);
+		g.fillOval(500, 350, 600, 600); // Head
+		showEars(g);
+		showSnout(g);
+		showMouth(g);
+		showTopHat(g);
+		showMonocle(g);
+		showEyes(g);
+		showEyelid(g);
+		showBrokenGlasses(g);
 	}
 
-	private void ears(Graphics g) {
+	private void showEars(Graphics g) {
 		// left
 		g.setColor(FUR_2);
 		g.fillArc(470, 390, 200, 60, 0, 180);
-		g.fillPolygon(new int[] { 520, 470, 670 }, new int[] { 570, 420, 420 }, 3);
+		g.fillPolygon(new int[] { 520, 470, 670 }, new int[] { 570, 420, 420 },
+				3);
 		// right
 		g.fillArc(930, 390, 200, 60, 0, 180);
-		g.fillPolygon(new int[] { 1070, 1130, 930 }, new int[] { 570, 420, 420 }, 3);
+		g.fillPolygon(new int[] { 1070, 1130, 930 },
+				new int[] { 570, 420, 420 }, 3);
 	}
 
-	private void snout(Graphics g) {
+	private void showSnout(Graphics g) {
 		// snout
 		g.setColor(FUR_2);
 		g.fillPolygon(
@@ -181,7 +182,7 @@ public class Logo extends JPanel {
 		g.fillOval(750, 673, 100, 74);
 	}
 
-	private void mouth(Graphics g) {
+	private void showMouth(Graphics g) {
 		g.setColor(TONGUE_COLOR);
 		int tongueAux = currentFrame < Timer.FRAME_COUNT / 2 ? currentFrame
 				* 100 / Timer.FRAME_COUNT : 50
@@ -225,7 +226,7 @@ public class Logo extends JPanel {
 		g.fillOval(912, 863, 5, 5);
 	}
 
-	private void topHat(Graphics g) {
+	private void showTopHat(Graphics g) {
 		g.setColor(TOPHAT_COLOR_1);
 		g.fillOval(500, 340, 600, 140);
 		g.fillRect(600, 90, 400, 300);
@@ -241,7 +242,7 @@ public class Logo extends JPanel {
 		}
 	}
 
-	private void monocle(Graphics g) {
+	private void showMonocle(Graphics g) {
 		g.setColor(MONOCLE_COLOR_1);
 		g.fillOval(819, 489, 222, 222);
 		g.fillRect(1036, 590, 15, 20);
@@ -253,8 +254,7 @@ public class Logo extends JPanel {
 		g.fillOval(829, 499, 202, 202);
 	}
 
-	private void eyes(Graphics g) {
-
+	private void showEyes(Graphics g) {
 		// left
 		Color currentEyesColor;
 		if (currentFrame < Timer.FRAME_COUNT / 2) {
@@ -356,7 +356,7 @@ public class Logo extends JPanel {
 		}
 	}
 
-	private void eyelid(Graphics g) {
+	private void showEyelid(Graphics g) {
 		// eyelid
 		// left
 		g.setColor(FUR_1);
@@ -381,7 +381,7 @@ public class Logo extends JPanel {
 				535 + eyelidAux / 2, 530 + eyelidAux / 2, 525 }, 4);
 	}
 
-	private void brokenGlass(Graphics g) {
+	private void showBrokenGlasses(Graphics g) {
 		g.setColor(Color.BLACK);
 
 		if (currentFrame >= Timer.FRAME_COUNT / 2 - 4 * Timer.FRAME_DURATION
