@@ -2,7 +2,14 @@ package logo;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
@@ -71,6 +78,30 @@ public class Logo extends JPanel {
 				frame.setVisible(true);
 				timer.setLogo(frame);
 				timer.start();
+				MouseListener ml = new MouseListener() {
+					@Override
+					public void mousePressed(MouseEvent e) {
+						BufferedImage img = new BufferedImage(1600, 1000, BufferedImage.TYPE_INT_RGB);
+		                Graphics2D g2i = img.createGraphics();
+		                logo.paintComponent(g2i);
+		                g2i.dispose();
+		                try {
+		                  ImageIO.write(img, "png", new File("PUG.png"));
+		                }
+		                catch(IOException ioe) {
+		                  ioe.printStackTrace();
+		                }
+					}
+					@Override
+					public void mouseReleased(MouseEvent e) {}
+					@Override
+					public void mouseExited(MouseEvent e) {}
+					@Override
+					public void mouseEntered(MouseEvent e) {}
+					@Override
+					public void mouseClicked(MouseEvent e) {}
+				};
+				logo.addMouseListener(ml);
 			}
 		});
 	}
