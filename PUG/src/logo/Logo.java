@@ -16,7 +16,7 @@ import javax.swing.SwingUtilities;
 
 public class Logo extends JPanel {
 
-	private static final boolean CREATE_ALL_IMAGES = true;
+	private static final boolean CREATE_ALL_IMAGES = false;
 	
 	private static final long serialVersionUID = -6657812409427281483L;
 
