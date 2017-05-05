@@ -1,6 +1,6 @@
-# PUG
-[![IMG-20161127-WA0001.jpg](https://s11.postimg.org/b6hqi07tv/IMG_20161127_WA0001.jpg)](https://postimg.org/image/wswqz16e7/)
+# PUG - Projeto Universitário de Games
+![Image of Logo](https://media.giphy.com/media/3oKIPoFVfXLEzKtpza/source.gif)
 
-PUG (University Games Project (in Portuguese)) is an academic ~~procrastination~~ game development project compositing of ~~half a dozen~~ six hard-working university students, committed to achieving a splendid result.
+The PUG (University Game Project) is an academic project of ~~~Procrastination~~ Game Development comprised of ~~half a dozen~~ 6 hard-working college students committed to achieving a splendid result.
 
-A PUG (Projeto Universitário de Games) é um projeto acadêmico de ~~Procrastinação~~ Desenvolvimento de Jogos composto por ~~meia dúzia de~~ seis universitários laboriosos, comprometidos em obter um esplêndido resultado.
+A PUG (Projeto Universitário de Games) é um projeto acadêmico de ~~Procrastinação~~ Desenvolvimento de Jogos composto por ~~meia dúzia de~~ seis universitários laboriosos comprometidos em obter um esplêndido resultado.
