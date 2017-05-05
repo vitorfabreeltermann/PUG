@@ -26,7 +26,7 @@ public class Timer extends Thread{
 					
 					@Override
 					public void run() {
-						//currentFrame = 50;
+						//currentFrame = 0;
 						logo.repaint();
 					}
 				});
