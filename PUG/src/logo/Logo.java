@@ -16,7 +16,7 @@ import javax.swing.SwingUtilities;
 
 public class Logo extends JPanel {
 
-	private static final boolean JUST_CREATE_IMAGES = false;
+	private static final boolean CREATE_ALL_IMAGES = true;
 	
 	private static final long serialVersionUID = -6657812409427281483L;
 
@@ -68,17 +68,16 @@ public class Logo extends JPanel {
 
 	public static void main(String[] args) {
 		timer = new Timer();
-		if(JUST_CREATE_IMAGES){
+		if(CREATE_ALL_IMAGES){
 			logo = new Logo();
 			timer.setLogo(new JFrame(){
 				private static final long serialVersionUID = 1L;
 				{setContentPane(logo);}
 			});
-			for (int i = 0; i <= Timer.FRAME_COUNT; i++) {
+			for (int i = 1; i <= Timer.FRAME_COUNT; i++) {
 				timer.setCurrentFrame(i);
 				logo.savePicture();
 			}
-			System.exit(0);
 		}
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
@@ -92,6 +91,8 @@ public class Logo extends JPanel {
 				frame.setVisible(true);
 				timer.setLogo(frame);
 				timer.start();
+				//TODO begin
+				//analyze if it is really necessary
 				MouseListener ml = new MouseListener() {
 					@Override
 					public void mousePressed(MouseEvent e) {
@@ -107,6 +108,7 @@ public class Logo extends JPanel {
 					public void mouseClicked(MouseEvent e) {}
 				};
 				logo.addMouseListener(ml);
+				//TODO end
 			}
 		});
 	}
