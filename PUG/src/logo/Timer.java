@@ -50,5 +50,6 @@ public class Timer extends Thread{
 	}
 
 	public int getCurrentFrame(){ return currentFrame; }
+	public void setCurrentFrame(int frame){ currentFrame = frame; }
 	public void setLogo(JFrame logo){ Timer.logo = logo; }
 }
