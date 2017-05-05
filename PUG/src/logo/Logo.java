@@ -122,7 +122,7 @@ public class Logo extends JPanel {
 		//background
 		g.setColor(BACKGROUND_2_2);
 		Color backgroundAux1, backgroundAux2;
-		if(currentFrame < Timer.FRAME_COUNT/2){
+		if(currentFrame < Timer.FRAME_COUNT / 2){
 			backgroundAux1 = new Color(
 					(BACKGROUND_2_1.getRed()*(200/Timer.FRAME_COUNT)*currentFrame + BACKGROUND_1_1.getRed()*(100-((200/Timer.FRAME_COUNT)*currentFrame)))/100,
 					(BACKGROUND_2_1.getGreen()*(200/Timer.FRAME_COUNT)*currentFrame + BACKGROUND_1_1.getGreen()*(100-((200/Timer.FRAME_COUNT)*currentFrame)))/100,
