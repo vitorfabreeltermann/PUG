@@ -3,6 +3,7 @@ package logo;
 import java.awt.Color; 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -14,7 +15,9 @@ import javax.swing.SwingUtilities;
 
 public class Logo extends JPanel {
 
-	private static final boolean CREATE_ALL_IMAGES = true;
+	private Image[] images = new Image[Timer.FRAME_COUNT];
+	
+	private static final boolean CREATE_NEW_IMAGES = false;
 	
 	private static final int FUR_LENGTH = 30;
 	
@@ -68,34 +71,43 @@ public class Logo extends JPanel {
 
 	public static void main(String[] args) {
 		timer = new Timer();
-		if(CREATE_ALL_IMAGES){
-			logo = new Logo();
-			timer.setLogo(new JFrame(){
-				private static final long serialVersionUID = 1L;
-				{setContentPane(logo);}
-			});
-			for (int i = 1; i <= Timer.FRAME_COUNT; i++) {
-				timer.setCurrentFrame(i);
-				logo.savePicture();
-			}
-		}
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
 			public void run() {
 				frame = new JFrame("PUG");
 				logo = new Logo();
+				frame.setContentPane(logo);
+				timer.setLogo(frame);
 				frame.setBounds(0, 0, 1600, 1044);
 				logo.setBounds(0, 0, 1600, 1000);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(logo);
+				if(CREATE_NEW_IMAGES){
+					for (int i = 1; i <= Timer.FRAME_COUNT; i++) {
+						timer.setCurrentFrame(i);
+						logo.savePicture();
+					}
+				}
+				try {
+					logo.loadImages();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 				frame.setVisible(true);
-				timer.setLogo(frame);
 				timer.start();
 			}
 		});
+		
+	}
+	
+	private void loadImages() throws IOException{
+		for (int i = 0; i < Timer.FRAME_COUNT; i++) {
+			BufferedImage img = ImageIO.read(new File("PUG"+(i+1)+".png"));
+			images[i] = img;
+		}
 	}
 	
 	public void savePicture(){
+		updateCurrentFrame();
 		BufferedImage img = new BufferedImage(1600, 1000, BufferedImage.TYPE_INT_RGB);
         Graphics2D g2i = img.createGraphics();
         logo.paintPicture(g2i);
@@ -107,16 +119,16 @@ public class Logo extends JPanel {
           ioe.printStackTrace();
         }
 	}
-
+	
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		paintPicture(g);
+		//paintPicture(g);
+		updateCurrentFrame();
+		g.drawImage(images[currentFrame-1], 0, 0, null);
 	}
 	
 	public void paintPicture(Graphics g){
-		currentFrame = timer.getCurrentFrame();
-	
 		//background
 		g.setColor(BACKGROUND_2_2);
 		Color backgroundAux1, backgroundAux2;
@@ -374,6 +386,9 @@ public class Logo extends JPanel {
 				}
 			}
 		}
-		
+	}
+	
+	public void updateCurrentFrame(){
+		currentFrame = timer.getCurrentFrame();
 	}
 }

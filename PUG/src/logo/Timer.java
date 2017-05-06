@@ -17,7 +17,7 @@ public class Timer extends Thread{
 	
 	@Override
 	public void run() {
-		currentFrame = 0;
+		currentFrame = 1;
 		long accumulator = 0;
 		while(true){
 			long firstUpdate = System.currentTimeMillis();
@@ -26,7 +26,7 @@ public class Timer extends Thread{
 					
 					@Override
 					public void run() {
-						//currentFrame = 0;
+						//currentFrame = 1;
 						//System.out.println(currentFrame);
 						logo.repaint();
 					}
@@ -40,7 +40,7 @@ public class Timer extends Thread{
 				accumulator += secondUpdate - firstUpdate;
 				if(accumulator >= FRAME_DURATION){
 					currentFrame += accumulator / FRAME_DURATION;
-					if(currentFrame > FRAME_COUNT)
+					if((currentFrame-1) >= FRAME_COUNT)
 						currentFrame %= FRAME_COUNT;
 					accumulator %= FRAME_DURATION;
 				}
@@ -49,7 +49,7 @@ public class Timer extends Thread{
 			}
 		}
 	}
-
+	
 	public int getCurrentFrame(){ return currentFrame; }
 	public void setCurrentFrame(int frame){ currentFrame = frame; }
 	public void setLogo(JFrame logo){ Timer.logo = logo; }
