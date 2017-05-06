@@ -18,6 +18,8 @@ public class Logo extends JPanel {
 
 	private static final boolean CREATE_ALL_IMAGES = false;
 	
+	private static final int FUR_LENGTH = 30;
+	
 	private static final long serialVersionUID = -6657812409427281483L;
 
 	private static Timer timer;
@@ -168,8 +170,11 @@ public class Logo extends JPanel {
 		
 		
 		//head
-		g.setColor(FUR_1);
-		g.fillOval(500, 350, 600, 600);
+		for (int i = 0; i < FUR_LENGTH; i++) {
+			g.setColor(new Color(FUR_1.getRed(), FUR_1.getGreen(), FUR_1.getBlue(), 0xff-(int)(((float)0xff)*(((float)i)/((float)FUR_LENGTH)))));
+			g.fillOval(500+FUR_LENGTH-i, 350+FUR_LENGTH-i, 600-FUR_LENGTH*2+2*i, 600-FUR_LENGTH*2+2*i);
+		}
+		
 		
 		//ears
 		//left
