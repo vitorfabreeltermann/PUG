@@ -184,7 +184,6 @@ public class Logo extends JPanel {
 			g.fillPolygon(new int[]{520, 470+FUR_LENGTH-i, 670-FUR_LENGTH+i},
 						  new int[]{570-FUR_LENGTH+i, 420, 420},
 						  3);
-			//g.fillOval(500+FUR_LENGTH-i, 350+FUR_LENGTH-i, 600-FUR_LENGTH*2+2*i, 600-FUR_LENGTH*2+2*i);
 			//right
 			g.fillArc(930+FUR_LENGTH-i, 390+FUR_LENGTH-i, 200-FUR_LENGTH*2+2*i, 60-FUR_LENGTH*2+2*i, 0, 180);
 			g.fillPolygon(new int[]{1070, 1130-FUR_LENGTH+i, 930+FUR_LENGTH-i},
@@ -193,61 +192,62 @@ public class Logo extends JPanel {
 		}
 		
 		//snout
-		g.setColor(FUR_2);
-		g.fillPolygon(new int[]{800, 700, 650, 660, 750, 850, 940, 950, 900},
-					  new int[]{810, 870, 830, 740, 700, 700, 740, 830, 870},
-					  9);
-		g.fillOval(647, 805, 77, 70);
-		g.fillOval(875, 805, 77, 70);
+		
+		for (int i = 0; i < FUR_LENGTH; i++) {
+			g.setColor(new Color(FUR_2.getRed(), FUR_2.getGreen(), FUR_2.getBlue(), 0xff-(int)(((float)0xff)*(((float)i)/((float)FUR_LENGTH)))));
+			g.fillPolygon(new int[]{800, 700+FUR_LENGTH-i, 650+FUR_LENGTH-i, 660+FUR_LENGTH-i, 750+FUR_LENGTH-i, 850-FUR_LENGTH+i, 940-FUR_LENGTH+i, 950-FUR_LENGTH+i, 900-FUR_LENGTH+i},
+					  	  new int[]{810-FUR_LENGTH+i, 870-FUR_LENGTH+i, 830-FUR_LENGTH+i, 740+FUR_LENGTH-i, 700+FUR_LENGTH-i, 700+FUR_LENGTH-i, 740+FUR_LENGTH-i, 830-FUR_LENGTH+i, 870-FUR_LENGTH+i},
+					  	  9);
+			g.fillOval(647+FUR_LENGTH-i, 805+FUR_LENGTH-i, 77-FUR_LENGTH*2+2*i, 70-FUR_LENGTH*2+2*i);
+			g.fillOval(875+FUR_LENGTH-i, 805+FUR_LENGTH-i, 77-FUR_LENGTH*2+2*i, 70-FUR_LENGTH*2+2*i);
+			g.fillArc(600+FUR_LENGTH-i, 490+FUR_LENGTH-i, 400-FUR_LENGTH*2+2*i, 400-FUR_LENGTH*2+2*i, 225, 90);
+		}
+		
+		for (int i = 0; i < FUR_LENGTH; i++) {
+			g.setColor(new Color(0x0, 0x0, 0x0, 0xff-(int)(((float)0xff)*(((float)i)/((float)FUR_LENGTH)))));
+			g.fillOval(750+FUR_LENGTH-i, 673+FUR_LENGTH-i, 100-FUR_LENGTH*2+2*i, 74-FUR_LENGTH*2+2*i);
+		}
 		
 		
-		
-		g.fillArc(600, 490, 400, 400, 225, 90);
-		
-		g.setColor(Color.BLACK);
-		
-		g.fillOval(750, 673, 100, 74);
 		
 		//mouth
 		g.setColor(TONGUE_COLOR);
 		int tongueAux = currentFrame < Timer.FRAME_COUNT/2 ? currentFrame*100/Timer.FRAME_COUNT : 50-(currentFrame-Timer.FRAME_COUNT/2)*100/Timer.FRAME_COUNT;
-		g.fillArc(750, 750-tongueAux, 100, 100, 240, 60);
+		g.fillArc(750, 750-tongueAux, 100, 80, 240, 60);
 		
 		g.setColor(FUR_2);
-		g.fillArc(501, 730, 300, 145, 295, 64);
-		g.fillArc(799, 730, 300, 145, 180, 64);
-		g.fillRect(775, 753, 50, 52);
+		g.fillArc(531, 720, 270, 145, 295, 64);
+		g.fillArc(799, 720, 270, 145, 180, 64);
+		g.fillRect(775, 743, 60, 52);
 		
 		g.setColor(Color.BLACK);
 		
-		g.drawLine(800, 700, 800, 805);
-		g.drawLine(801, 700, 801, 805);
-		g.drawLine(799, 700, 799, 805);
+		g.drawLine(800, 700, 800, 800);
+		g.drawLine(801, 700, 801, 800);
+		g.drawLine(799, 700, 799, 800);
 		
 		
-		g.drawArc(499, 730, 300, 145, 295, 64);
-		g.drawArc(500, 730, 300, 145, 295, 64);
-		g.drawArc(501, 730, 300, 145, 295, 64);
+		g.drawArc(499, 720, 300, 145, 295, 64);
+		g.drawArc(500, 720, 300, 145, 295, 64);
+		g.drawArc(501, 720, 300, 145, 295, 64);
 		
-		g.drawArc(800, 730, 300, 145, 180, 64);
-		g.drawArc(801, 730, 300, 145, 180, 64);
-		g.drawArc(802, 730, 300, 145, 180, 64);
+		g.drawArc(800, 720, 300, 145, 180, 64);
+		g.drawArc(801, 720, 300, 145, 180, 64);
+		g.drawArc(802, 720, 300, 145, 180, 64);
 		
 		g.fillOval(700, 800, 5, 5);
-		g.fillOval(659, 832, 5, 5);
+		g.fillOval(669, 832, 5, 5);
 		g.fillOval(769, 798, 5, 5);
-		g.fillOval(689, 744, 5, 5);
-		g.fillOval(730, 850, 5, 5);
+		g.fillOval(689, 754, 5, 5);
+		g.fillOval(730, 840, 5, 5);
 		g.fillOval(743, 756, 5, 5);
-		g.fillOval(683, 863, 5, 5);
 		
 		g.fillOval(895, 800, 5, 5);
-		g.fillOval(936, 832, 5, 5);
+		g.fillOval(926, 832, 5, 5);
 		g.fillOval(826, 798, 5, 5);
-		g.fillOval(906, 744, 5, 5);
-		g.fillOval(865, 850, 5, 5);
+		g.fillOval(906, 754, 5, 5);
+		g.fillOval(865, 840, 5, 5);
 		g.fillOval(852, 756, 5, 5);
-		g.fillOval(912, 863, 5, 5);
 		
 		
 		//topper
@@ -395,5 +395,6 @@ public class Logo extends JPanel {
 				}
 			}
 		}
+		
 	}
 }
