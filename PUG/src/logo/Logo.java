@@ -16,7 +16,7 @@ import javax.swing.SwingUtilities;
 
 public class Logo extends JPanel {
 
-	private static final boolean CREATE_ALL_IMAGES = false;
+	private static final boolean CREATE_ALL_IMAGES = true;
 	
 	private static final int FUR_LENGTH = 30;
 	
@@ -192,10 +192,10 @@ public class Logo extends JPanel {
 		//snout
 		g.setColor(FUR_2);
 		g.fillPolygon(new int[]{800, 700, 650, 660, 750, 850, 940, 950, 900},
-					  new int[]{810, 880, 830, 740, 700, 700, 740, 830, 880},
+					  new int[]{810, 870, 830, 740, 700, 700, 740, 830, 870},
 					  9);
-		g.fillOval(646, 810, 75, 75);
-		g.fillOval(881, 810, 75, 75);
+		g.fillOval(647, 805, 77, 70);
+		g.fillOval(875, 805, 77, 70);
 		
 		
 		
