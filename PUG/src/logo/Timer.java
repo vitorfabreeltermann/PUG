@@ -40,8 +40,10 @@ public class Timer extends Thread{
 				accumulator += secondUpdate - firstUpdate;
 				if(accumulator >= FRAME_DURATION){
 					currentFrame += accumulator / FRAME_DURATION;
-					if((currentFrame-1) >= FRAME_COUNT)
+					if((currentFrame-1) >= FRAME_COUNT){
 						currentFrame %= FRAME_COUNT;
+						if(currentFrame == 0) currentFrame = 1;
+					}
 					accumulator %= FRAME_DURATION;
 				}
 			} catch (InterruptedException e) {
