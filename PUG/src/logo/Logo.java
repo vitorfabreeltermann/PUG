@@ -3,8 +3,6 @@ package logo;
 import java.awt.Color; 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -93,24 +91,6 @@ public class Logo extends JPanel {
 				frame.setVisible(true);
 				timer.setLogo(frame);
 				timer.start();
-				//TODO begin
-				//analyze if it is really necessary
-				MouseListener ml = new MouseListener() {
-					@Override
-					public void mousePressed(MouseEvent e) {
-						logo.savePicture();
-					}
-					@Override
-					public void mouseReleased(MouseEvent e) {}
-					@Override
-					public void mouseExited(MouseEvent e) {}
-					@Override
-					public void mouseEntered(MouseEvent e) {}
-					@Override
-					public void mouseClicked(MouseEvent e) {}
-				};
-				logo.addMouseListener(ml);
-				//TODO end
 			}
 		});
 	}
@@ -192,7 +172,6 @@ public class Logo extends JPanel {
 		}
 		
 		//snout
-		
 		for (int i = 0; i < FUR_LENGTH; i++) {
 			g.setColor(new Color(FUR_2.getRed(), FUR_2.getGreen(), FUR_2.getBlue(), 0xff-(int)(((float)0xff)*(((float)i)/((float)FUR_LENGTH)))));
 			g.fillPolygon(new int[]{800, 700+FUR_LENGTH-i, 650+FUR_LENGTH-i, 660+FUR_LENGTH-i, 750+FUR_LENGTH-i, 850-FUR_LENGTH+i, 940-FUR_LENGTH+i, 950-FUR_LENGTH+i, 900-FUR_LENGTH+i},
