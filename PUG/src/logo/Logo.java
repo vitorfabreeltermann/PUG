@@ -177,17 +177,20 @@ public class Logo extends JPanel {
 		
 		
 		//ears
-		//left
-		g.setColor(FUR_2);
-		g.fillArc(470, 390, 200, 60, 0, 180);
-		g.fillPolygon(new int[]{520, 470, 670},
-					  new int[]{570, 420, 420},
-					  3);
-		//right
-		g.fillArc(930, 390, 200, 60, 0, 180);
-		g.fillPolygon(new int[]{1070, 1130, 930},
-					  new int[]{570, 420, 420},
-					  3);
+		for (int i = 0; i < FUR_LENGTH; i++) {
+			g.setColor(new Color(FUR_2.getRed(), FUR_2.getGreen(), FUR_2.getBlue(), 0xff-(int)(((float)0xff)*(((float)i)/((float)FUR_LENGTH)))));
+			//left
+			g.fillArc(470+FUR_LENGTH-i, 390+FUR_LENGTH-i, 200-FUR_LENGTH*2+2*i, 60-FUR_LENGTH*2+2*i, 0, 180);
+			g.fillPolygon(new int[]{520, 470+FUR_LENGTH-i, 670-FUR_LENGTH+i},
+						  new int[]{570-FUR_LENGTH+i, 420, 420},
+						  3);
+			//g.fillOval(500+FUR_LENGTH-i, 350+FUR_LENGTH-i, 600-FUR_LENGTH*2+2*i, 600-FUR_LENGTH*2+2*i);
+			//right
+			g.fillArc(930+FUR_LENGTH-i, 390+FUR_LENGTH-i, 200-FUR_LENGTH*2+2*i, 60-FUR_LENGTH*2+2*i, 0, 180);
+			g.fillPolygon(new int[]{1070, 1130-FUR_LENGTH+i, 930+FUR_LENGTH-i},
+						  new int[]{570-FUR_LENGTH+i, 420, 420},
+						  3);
+		}
 		
 		//snout
 		g.setColor(FUR_2);
@@ -392,6 +395,5 @@ public class Logo extends JPanel {
 				}
 			}
 		}
-	
 	}
 }
