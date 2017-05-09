@@ -123,12 +123,14 @@ public class Logo extends JPanel {
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		//paintPicture(g);
 		updateCurrentFrame();
+		//paintPicture(g);
 		g.drawImage(images[currentFrame-1], 0, 0, null);
 	}
 	
 	public void paintPicture(Graphics g){
+		int tempShadowLenth;
+		int tempShadowIntensity;
 		//background
 		g.setColor(BACKGROUND_2_2);
 		Color backgroundAux1, backgroundAux2;
@@ -165,6 +167,22 @@ public class Logo extends JPanel {
 		for (int i = 0; i < FUR_LENGTH; i++) {
 			g.setColor(new Color(FUR_1.getRed(), FUR_1.getGreen(), FUR_1.getBlue(), 0xff-(int)(((float)0xff)*(((float)i)/((float)FUR_LENGTH)))));
 			g.fillOval(500+FUR_LENGTH-i, 350+FUR_LENGTH-i, 600-FUR_LENGTH*2+2*i, 600-FUR_LENGTH*2+2*i);
+		}
+		
+		//shadow - head
+		tempShadowLenth = 100;
+		tempShadowIntensity = 0x40;
+		for (int i = 0; i < tempShadowLenth; i++) {
+			int a = -1;
+			int b = -((-(90+i/2)) + (i/4));
+			int c = -(i/4)*(-(90 + i/2));
+			int vertex = (-(b*b - 4*a*c))/4*a;
+			float base = (((float)tempShadowIntensity)*(((float)i)/((float)tempShadowLenth)));
+			for (int j = -i/4; j <= 90 + i/2 ; j++) {
+				int function = j*j*a + j*b + c;
+				g.setColor(new Color(0x0, 0x0,0x0, (int)(base * (float)function / (float)vertex)));
+				g.drawArc(500+tempShadowLenth-i, 350+tempShadowLenth-i, 600-tempShadowLenth*2+2*i, 600-tempShadowLenth*2+2*i, 270+j, 1);
+			}
 		}
 		
 		
@@ -386,6 +404,7 @@ public class Logo extends JPanel {
 				}
 			}
 		}
+		/**/
 	}
 	
 	public void updateCurrentFrame(){
