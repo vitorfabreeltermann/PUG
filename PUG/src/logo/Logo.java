@@ -240,7 +240,7 @@ public class Logo extends JPanel {
 		g.fillOval(852, 756, 5, 5);
 		
 		
-		//topper
+		//tophat
 		g.setColor(TOPHAT_COLOR_1);
 		g.fillArc(500, 340, 600, 140, 180, 180);
 		g.fillArc(500, 360, 165, 100, 0, 180);
