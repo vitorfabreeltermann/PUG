@@ -128,7 +128,7 @@ public class Logo extends JPanel {
 		g.drawImage(images[currentFrame-1], 0, 0, null);
 	}
 	
-	public void paintPicture(Graphics g){
+	public strictfp void paintPicture(Graphics g){
 		//background
 		g.setColor(BACKGROUND_2_2);
 		Color backgroundAux1, backgroundAux2;
