@@ -71,7 +71,7 @@ public class Logo extends JPanel {
 
 	public static void main(String[] args) {
 		timer = new Timer();
-		SwingUtilities.invokeLater(new Runnable() { 
+		SwingUtilities.invokeLater(new Runnable() {
 			@Override
 			public void run() {
 				frame = new JFrame("PUG");
