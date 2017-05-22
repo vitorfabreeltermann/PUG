@@ -242,19 +242,18 @@ public class Logo extends JPanel {
 		
 		//tophat
 		g.setColor(TOPHAT_COLOR_1);
-		g.fillArc(500, 340, 600, 140, 180, 180);
-		g.fillArc(500, 360, 165, 100, 0, 180);
-		g.fillArc(935, 360, 165, 100, 0, 180);
+		g.fillArc(515, 340, 570, 140, 180, 180);
+		g.fillArc(515, 360, 570, 100, 0, 180);
 		g.fillRect(600, 90, 401, 350);
-		g.fillArc(600, 40, 400, 100, 0, 180);
+		g.fillArc(600, 60, 400, 60, 0, 180);
 		g.setColor(Color.BLACK);
-		g.drawArc(600, 40, 400, 100, 180, 180);
-		g.drawArc(600, 41, 400, 100, 180, 180);
-		g.drawArc(600, 42, 400, 100, 180, 180);
+		g.drawArc(600, 60, 400, 60, 180, 180);
+		g.drawArc(600, 61, 400, 60, 180, 180);
+		g.drawArc(600, 62, 400, 60, 180, 180);
 		
 		g.setColor(TOPHAT_COLOR_2);
 		for (int i = 0; i < 50; i++) {
-			g.drawArc(600, 340-i, 400, 100, 180, 180);
+			g.drawArc(600, 350-i, 400, 100, 180, 180);
 		}
 		
 		//monocle
