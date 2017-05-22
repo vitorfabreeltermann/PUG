@@ -1,5 +1,5 @@
 # PUG - Projeto Universitário de Games
-![Image of Logo](https://media.giphy.com/media/3og0IBO8xyNBkSgleE/giphy.gif)
+![Image of Logo](https://media.giphy.com/media/l0Iy2d2fklaXa1ies/giphy.gif)
 
 The PUG (University Game Project) is an academic project of ~~~Procrastination~~ Game Development comprised of ~~half a dozen~~ 6 hard-working college students committed to achieving a splendid result.
 
